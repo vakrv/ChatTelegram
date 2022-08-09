@@ -1,4 +1,4 @@
-package com.example.chattelegram.ui
+package com.example.chattelegram.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,23 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.chattelegram.R
-import com.example.chattelegram.databinding.FragmentChatsBinding
-
-class ChatsFragment : Fragment() {
 
 
-    private lateinit var mBinding: FragmentChatsBinding
+open class BaseFragment(val layout : Int) : Fragment() {
+
+    private lateinit var  mRootView: View
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentChatsBinding.inflate(layoutInflater)
-        return mBinding.root
+        mRootView = inflater.inflate(layout, container, false)
+        return mRootView
     }
 
+    override fun onStart() {
+        super.onStart()
 
-    override fun onResume() {
-        super.onResume()
+
 
     }
 }
