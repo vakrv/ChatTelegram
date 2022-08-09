@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.LayoutRes
 import androidx.appcompat.widget.Toolbar
 import com.example.chattelegram.databinding.ActivityMainBinding
+import com.example.chattelegram.ui.ChatsFragment
+import com.example.chattelegram.ui.SettingsFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -19,7 +20,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 private lateinit var mBinding: ActivityMainBinding
 private lateinit var mDriwer : Drawer
 private lateinit var mHeader : AccountHeader
-private lateinit var mToolbar : Toolbar
+private  lateinit var mToolbar : Toolbar
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
         setSupportActionBar(mToolbar)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dataContainer, ChatsFragment())
+            .commit()
         createHeader()
         createDrawer()
     }
@@ -119,7 +123,13 @@ class MainActivity : AppCompatActivity() {
                     position: Int,
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
-                    Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show( )
+                    when(position){
+                        7 -> supportFragmentManager
+                            .beginTransaction()
+                            .addToBackStack(null)
+                            .replace(R.id.dataContainer, SettingsFragment())
+                            .commit()
+                    }
                     return false
                 }
          }).build()

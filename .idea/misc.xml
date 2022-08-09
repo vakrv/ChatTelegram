@@ -6,6 +6,8 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.28901373283395754" />
         <entry key="app/src/main/res/drawable/header.xml" value="0.1985" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_chats.xml" value="0.17798913043478262" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.17798913043478262" />
       </map>
     </option>
   </component>
